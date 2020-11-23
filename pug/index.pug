@@ -2,53 +2,55 @@ extends layout/layout.pug
 
 block content
     // begin home
-    section#home.home.section.parallaxBox
-        .container_center
-            h1.home__title ДОКУМЕНТАЛЬНЫЙ ФИЛЬМ
-            .home__content
-                .home__top Making of
-                .home__logo
-                    img(src="img/mars.svg", alt="")
-                .home__action
-                    i.home__play(data-toggle="modal" data-target="#previwe")
-                        img(src="img/play.svg", alt="")
-                    span Посмотреть трейлер
+    section#home.first(data-scroll-section="")
+        .home.section.parallaxBox(data-scroll="" data-scroll-sticky="" data-scroll-target=".first")
+            .container_center
+                h1.home__title ДОКУМЕНТАЛЬНЫЙ ФИЛЬМ
+                .home__content(data-scroll="" data-scroll-speed="2")
+                    .home__top Making of
+                    .home__logo
+                        img(src="img/mars.svg", alt="")
+                    .home__action
+                        i.home__play(data-toggle="modal" data-target="#previwe")
+                            img(src="img/play.svg", alt="")
+                        span Посмотреть трейлер
 
-            // begin tasks
-            .tasks
-                .tasks__title Задачи
-                .tasks__list
-                    .tasks__item Рассказать о компании «MARS», которая является крупнейшим налоговым резидентом России
-                    .tasks__item Показать масштабы производства
-                    .tasks__item Показать корпоративную <br>культуру компании
+                // begin tasks
+                .tasks(data-scroll="" data-scroll-speed="1")
+                    .tasks__title Задачи
+                    .tasks__list
+                        .tasks__item Рассказать о компании «MARS», которая является крупнейшим налоговым резидентом России
+                        .tasks__item Показать масштабы производства
+                        .tasks__item Показать корпоративную <br>культуру компании
 
-            // end tasks
+                // end tasks
 
-        img.home__astro.parallaxMouse(src="img/asronavt.png", alt="" data-speed="1")
-        img.home__meteor.parallaxMouse(src="img/meteor-blure.png", alt="" data-speed="-0.8")
-        img.home__meteors.parallaxMouse(src="img/meteors.png", alt="" data-speed="-0.5")
+            img.home__astro.parallaxMouse(src="img/asronavt.png", alt="" data-speed="1")
+            img.home__meteor.parallaxMouse(src="img/meteor-blure.png", alt="" data-speed="-0.8")
+            img.home__meteors.parallaxMouse(src="img/meteors.png", alt="" data-speed="-0.5")
 
     // end home
 
     // begin research
-    section#research.research.section.parallaxBox
-        .container_center
-            h2.section__title Изучение архивных материалов
-            .research__content
-                each item in [1, 2, 3, 4, 5, 6, 7]
-                    img.research__img.wow(src="img/research-"+item+".png", alt="")
+    section(data-scroll-section="")
+        #research.research.section.parallaxBox
+            .container_center
+                h2.section__title(data-scroll="" data-scroll-call="title") Изучение архивных материалов
+                .research__content
+                    each item in [1, 2, 3, 4, 5, 6, 7]
+                        img.research__img.wow(src="img/research-"+item+".png", alt="" data-scroll="" data-scroll-class="slideUp")
 
-            .research__bottom Компания "MARS" инвестировала более $2 млрд в экономику России
+                .research__bottom Компания "MARS" инвестировала более $2 млрд в экономику России
 
-        img.research__cup.parallaxMouse(src="img/cup.png", alt="" data-speed="0.3")
-        img.research__cupblur.parallaxMouse(src="img/cup-blur.png", alt="" data-speed="-0.2")
-        img.research__left.parallaxMouse(src="img/research-left.png", alt="" data-speed="-1")
-        img.research__right.parallaxMouse(src="img/research-right.png", alt="" data-speed="1.5")
+            img.research__cup.parallaxMouse(src="img/cup.png", alt="" data-speed="0.3")
+            img.research__cupblur.parallaxMouse(src="img/cup-blur.png", alt="" data-speed="-0.2")
+            img.research__left.parallaxMouse(src="img/research-left.png", alt="" data-speed="-1")
+            img.research__right.parallaxMouse(src="img/research-right.png", alt="" data-speed="1.5")
 
     // end research
 
     // begin manufacture
-    section#manufacture.manufacture.section.parallaxBox
+    section#manufacture.manufacture.section.parallaxBox(data-scroll-section="")
         .container_center
             h2.section__title Для реализации <span>поставленных задач</span>, <br>решили отправиться на производство <br>и в головной офис компании
             h3.section__sub С представителями компании "MARS" мы заранее <br>обговорили, какие локации и герои нам понадобятся
@@ -61,7 +63,7 @@ block content
     // end manufacture
 
     // begin forShooting
-    section#forShooting.forShooting.section.parallaxBox
+    section#forShooting.forShooting.section.parallaxBox(data-scroll-section="")
         h2.section__title Отправляемся на съемки
         .forShooting__row.snickers
             .forShooting__product
@@ -72,9 +74,9 @@ block content
             .forShooting__first Первый батончик был сделан в 1923 году
 
             .forShooting__img
-                img.wow(src="img/snickers-photo-1.png", alt="")
-                img.wow(src="img/snickers-photo-2.png", alt="")
-                img.wow(src="img/snickers-photo-3.png", alt="")
+                img.wow(src="img/snickers-photo-1.png", alt="" data-scroll="" data-scroll-class="slideUp")
+                img.wow(src="img/snickers-photo-2.png", alt="" data-scroll="" data-scroll-class="slideUp")
+                img.wow(src="img/snickers-photo-3.png", alt="" data-scroll="" data-scroll-class="slideUp")
                 .forShooting__descr С 1995 года в России сделано более 23 млрд батончиков
 
         .forShooting__row.whiskas
@@ -86,9 +88,9 @@ block content
             .forShooting__first Первая упаковка была сделана в 1958 году
 
             .forShooting__img
-                img.wow(src="img/whiskas-photo-1.png", alt="")
-                img.wow(src="img/whiskas-photo-2.png", alt="")
-                img.wow(src="img/whiskas-photo-3.png", alt="")
+                img.wow(src="img/whiskas-photo-1.png", alt="" data-scroll="" data-scroll-class="slideUp")
+                img.wow(src="img/whiskas-photo-2.png", alt="" data-scroll="" data-scroll-class="slideUp")
+                img.wow(src="img/whiskas-photo-3.png", alt="" data-scroll="" data-scroll-class="slideUp")
 
         .forShooting__row.mms
 
@@ -101,9 +103,9 @@ block content
                 img.parallaxMouse(src="img/mms-2.png", alt="" data-speed="1.5")
 
             .forShooting__img
-                img.wow(src="img/mms-photo-1.png", alt="")
-                img.wow(src="img/mms-photo-2.png", alt="")
-                img.wow(src="img/mms-photo-3.png", alt="")
+                img.wow(src="img/mms-photo-1.png", alt="" data-scroll="" data-scroll-class="slideUp")
+                img.wow(src="img/mms-photo-2.png", alt="" data-scroll="" data-scroll-class="slideUp")
+                img.wow(src="img/mms-photo-3.png", alt="" data-scroll="" data-scroll-class="slideUp")
                 .forShooting__descr Каждая конфета покрыта 35 слоев глазури
 
         .forShooting__row.dolmio
@@ -114,20 +116,20 @@ block content
                 img.parallaxMouse(src="img/dolmino-1.png", alt="" data-speed="-0.2")
 
             .forShooting__img
-                img.wow(src="img/dolmino-photo-1.png", alt="")
-                img.wow(src="img/dolmino-photo-2.png", alt="")
-                img.wow(src="img/dolmino-photo-3.png", alt="")
+                img.wow(src="img/dolmino-photo-1.png", alt="" data-scroll="" data-scroll-class="slideUp")
+                img.wow(src="img/dolmino-photo-2.png", alt="" data-scroll="" data-scroll-class="slideUp")
+                img.wow(src="img/dolmino-photo-3.png", alt="" data-scroll="" data-scroll-class="slideUp")
 
     // end forShooting
 
     // begin office
-    section#office.office.section.parallaxBox
+    section#office.office.section.parallaxBox(data-scroll-section="")
         .container_center
             h2.section__title Головной офис
             .office__content
-                img.wow(src="img/office-1.png", alt="")
-                img.wow(src="img/office-2.png", alt="")
-                img.wow(src="img/office-3.png", alt="")
+                img.wow(src="img/office-1.png", alt="" data-scroll="" data-scroll-class="slideUp")
+                img.wow(src="img/office-2.png", alt="" data-scroll="" data-scroll-class="slideUp")
+                img.wow(src="img/office-3.png", alt="" data-scroll="" data-scroll-class="slideUp")
             .office__owner Президент компании «MARS» в России
 
         .office__nuts
@@ -139,7 +141,7 @@ block content
     // end office
 
     // begin concept
-    section#concept.concept.section.parallaxBox
+    section#concept.concept.section.parallaxBox(data-scroll-section="")
         .concept__bg
             img.parallaxMouse(src="img/concept-nuts.png", alt="" data-speed="0.3")
         .concept__image
@@ -177,7 +179,7 @@ block content
     // end concept
 
     // begin final
-    section#final.final.section
+    section#final.final.section(data-scroll-section="")
         .container_center
             h2.section__title Финальный ролик
             .final__video
@@ -189,7 +191,7 @@ block content
     // end final
 
     // begin review
-    section#review.review.section.parallaxBox
+    section#review.review.section.parallaxBox(data-scroll-section="")
         .review__bg
             img.parallaxMouse(src="img/review-bg.png", alt="" data-speed="0.5")
         .container_center
@@ -207,7 +209,7 @@ block content
     //- // Button trigger modal previwe
     //- button(class="btn btn-primary btn-lg" data-toggle="modal" data-target="#previwe") Click to open modal
     // Begin Modal previwe
-    .modal.fade.previwe#previwe
+    .modal.fade.previwe#previwe(data-scroll-section="")
         .modal-dialog
             a(href="#" class="modal-close" data-dismiss="modal")
             .video__wrapper

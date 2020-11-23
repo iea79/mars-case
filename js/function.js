@@ -6,6 +6,11 @@
  *
  */
 
+import LocomotiveScroll from 'locomotive-scroll';
+
+
+// scroll.destroy();
+
 var app = {
     pageScroll: '',
     lgWidth: 1200,
@@ -23,6 +28,14 @@ function isXsWidth() { return $(window).width() < app.smWidth; } // < 768
 function isIOS() { return app.iOS(); } // for iPhone iPad iPod
 function isTouch() { return app.touchDevice(); } // for touch device
 
+if (!isXsWidth()) {
+    const scroll = new LocomotiveScroll({
+        el: document.querySelector('[data-scroll-container]'),
+        smooth: true,
+        // repeat: true
+    });
+
+}
 
 $(document).ready(function() {
     // Хак для клика по ссылке на iOS
@@ -43,22 +56,67 @@ $(document).ready(function() {
 
     mouseMoveParallax();
 
-    let wowOffset = $(window).height() / 4;
+    // let wowOffset = $(window).height() / 4;
+    //
+    // let wow = new WOW({
+    //     boxClass:     'wow',
+    //     animateClass: 'slideUp', // animation css class (default is animated)
+    //     offset:       wowOffset,          // distance to the element when triggering the animation (default is 0)
+    // });
+    // wow.init();
+    //
+    //
+    // let wow2 = new WOW({
+    //     boxClass:     'wow2',      // animated element css class (default is wow)
+    //     animateClass: 'bounceUp', // animation css class (default is animated)
+    //     offset:       wowOffset,          // distance to the element when triggering the animation (default is 0)
+    // });
+    // wow2.init();
 
-    let wow = new WOW({
-        boxClass:     'wow',
-        animateClass: 'slideUp', // animation css class (default is animated)
-        offset:       wowOffset,          // distance to the element when triggering the animation (default is 0)
+    scroll.init();
+    setTimeout(function () {
+        scroll.update();
+    }, 100);
+
+    // name - call name (data-scroll-call)
+    // state - enter or exit
+    // el - object
+    //
+    scroll.on('call', (name, state, el) => {
+        // Using modularJS
+        // this.call(...func);
+        // Using jQuery events
+        // 'title' === console.log(name, state, el);
+        switch (name) {
+            case 'title':
+                // state = "enter" ? $(el.target).addClass('show') : $(el.target).removeClass('show');
+                if (state == "enter") {
+                    $(el.target).addClass('show')
+                    console.log(state);
+                } else {
+                    $(el.target).removeClass('show')
+                    console.log(state);
+                }
+                break;
+            default:
+
+        }
+        // 'title' === if (state == 'enter') : $(el).addClass('activ') ? $(el).removeClass('activ');
+        // 'title' === scroll.update();
+
+        // $(el).trigger('title');
+        // Or do it your own way 😎
     });
-    wow.init();
 
-
-    let wow2 = new WOW({
-        boxClass:     'wow2',      // animated element css class (default is wow)
-        animateClass: 'bounceUp', // animation css class (default is animated)
-        offset:       wowOffset,          // distance to the element when triggering the animation (default is 0)
+    scroll.on('scroll', obj => {
+        // Using modularJS
+        // this.call(...func);
+        // Using jQuery events
+        // console.log(obj);
+        // $(document).trigger(func);
+        // Or do it your own way 😎
     });
-    wow2.init();
+
 
 });
 

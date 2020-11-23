@@ -25,6 +25,7 @@
 // @import 'core/buttons';
 @import 'core/video';
 @import './vendor/modal';
+@import '../node_modules/locomotive-scroll/src/locomotive-scroll.scss';
 
 .home {
     padding: 3.2em 0;
@@ -1758,8 +1759,15 @@
 
 }
 
+.wow {
+    @media (min-width: 768px) {
+        opacity: 0;
+    }
+}
+
 .slideUp {
-    animation: slideUp 2s;
+
+    animation: slideUp 2s forwards;
 }
 
 @keyframes slideUp {
@@ -1776,6 +1784,7 @@
     50% {}
 
     100% {
+        opacity: 1;
         transform: translateY(0);
     }
 }
